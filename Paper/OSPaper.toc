@@ -38,7 +38,10 @@
 \contentsline {section}{\numberline {4.1}登录界面}{13}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}按键提示}{13}{subsection.4.1.1}%
 \contentsline {section}{\numberline {4.2}聊天界面}{14}{section.4.2}%
-\contentsline {chapter}{参考文献}{16}{section*.25}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}代码}{17}{appendix.A}%
-\contentsline {section}{\numberline {A.1}客户端}{17}{section.A.1}%
-\contentsline {section}{\numberline {A.2}客户端}{17}{section.A.2}%
+\contentsline {chapter}{\numberline {\zihao {-2}5\hspace {.3em}}开源}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}项目}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}参考}{16}{section.5.2}%
+\contentsline {chapter}{参考文献}{17}{section*.25}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}代码}{18}{appendix.A}%
+\contentsline {section}{\numberline {A.1}客户端}{18}{section.A.1}%
+\contentsline {section}{\numberline {A.2}客户端}{18}{section.A.2}%

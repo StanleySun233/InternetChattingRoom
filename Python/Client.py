@@ -6,9 +6,8 @@ import threading
 import json
 import tkinter.filedialog
 from tkinter.scrolledtext import ScrolledText
-import demo.neo4j.Neo_Fun as NeoFun
+import neo as NeoFun
 import cv2
-import numpy as np
 import ftplib
 
 if input() == '1':
