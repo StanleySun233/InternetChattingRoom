@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.2)  18 NOV 2021 11:12
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.2)  18 NOV 2021 11:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,7 +1110,7 @@ File: figures/sendvid.png Graphic file (type bmp)
 [16
 
 ]
-Underfull \hbox (badness 6658) in paragraph at lines 467--468
+Underfull \hbox (badness 6658) in paragraph at lines 471--472
 []\TU/SimSun(0)/m/n/12.045 郭 炳 均\TU/TimesNewRoman(0)/m/n/12.045 , \TU/SimSun(0)
 /m/n/12.045 王 思 晗\TU/TimesNewRoman(0)/m/n/12.045 . \TU/SimSun(0)/m/n/12.045 网 络
  聊 天 室 的 设 计 与 实 现 \TU/TimesNewRoman(0)/m/n/12.045 [J]. \TU/SimSun(0)/m/n/12.04
@@ -1125,36 +1125,30 @@ Underfull \hbox (badness 6658) in paragraph at lines 467--468
 \tf@thm=\write5
 \openout5 = `OSPaper.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 513.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 517.
 [18
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 513.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 517.
  (./OSPaper.aux (./includefile/frontmatter.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 513.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 513.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 517.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 517.
+Package rerunfilecheck Info: File `OSPaper.out' has not changed.
+(rerunfilecheck)             Checksum: 700570E97B810F7D9B35A9817BD7EB8F;2753.
 
-
-Package rerunfilecheck Warning: File `OSPaper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `OSPaper.out':
-(rerunfilecheck)             Before: 266393D09192B94410EE96A32E27CA05;2647
-(rerunfilecheck)             After:  700570E97B810F7D9B35A9817BD7EB8F;2753.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 513.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 517.
  ) 
 Here is how much of TeX's memory you used:
- 20650 strings out of 479418
- 423001 string characters out of 5881946
+ 20651 strings out of 479418
+ 423012 string characters out of 5881946
  923833 words of memory out of 5000000
- 37808 multiletter control sequences out of 15000+600000
+ 37809 multiletter control sequences out of 15000+600000
  540923 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  63i,12n,86p,814b,744s stack positions out of 5000i,500n,10000p,200000b,80000s
