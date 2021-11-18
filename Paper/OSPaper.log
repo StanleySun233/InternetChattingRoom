@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.2)  18 NOV 2021 11:14
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.2)  18 NOV 2021 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1086,31 +1086,16 @@ File: figures/chatui.png Graphic file (type bmp)
 ]
 File: figures/send.png Graphic file (type bmp)
 <figures/send.png>
-
-
-Package caption Warning: \label without proper reference on input line 440.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:20' on page 14 undefined on input line 433.
-
-
-Package caption Warning: \label without proper reference on input line 446.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:21' on page 14 undefined on input line 435.
-
 File: figures/sendpic.png Graphic file (type bmp)
 <figures/sendpic.png>
 File: figures/sendvid.png Graphic file (type bmp)
 <figures/sendvid.png>
-[14] [15]
+ [14] [15]
 \zihao {-2}5
 [16
 
 ]
-Underfull \hbox (badness 6658) in paragraph at lines 471--472
+Underfull \hbox (badness 6658) in paragraph at lines 478--479
 []\TU/SimSun(0)/m/n/12.045 郭 炳 均\TU/TimesNewRoman(0)/m/n/12.045 , \TU/SimSun(0)
 /m/n/12.045 王 思 晗\TU/TimesNewRoman(0)/m/n/12.045 . \TU/SimSun(0)/m/n/12.045 网 络
  聊 天 室 的 设 计 与 实 现 \TU/TimesNewRoman(0)/m/n/12.045 [J]. \TU/SimSun(0)/m/n/12.04
@@ -1125,31 +1110,28 @@ Underfull \hbox (badness 6658) in paragraph at lines 471--472
 \tf@thm=\write5
 \openout5 = `OSPaper.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 517.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 524.
 [18
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 517.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 524.
  (./OSPaper.aux (./includefile/frontmatter.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 517.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 517.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 524.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 524.
 Package rerunfilecheck Info: File `OSPaper.out' has not changed.
-(rerunfilecheck)             Checksum: 700570E97B810F7D9B35A9817BD7EB8F;2753.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: 9D27FBECE4CE82A13134A33BFD5ABE84;2812.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 517.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 524.
  ) 
 Here is how much of TeX's memory you used:
- 20651 strings out of 479418
- 423012 string characters out of 5881946
+ 20675 strings out of 479418
+ 423649 string characters out of 5881946
  923833 words of memory out of 5000000
- 37809 multiletter control sequences out of 15000+600000
- 540923 words of font info for 104 fonts, out of 8000000 for 9000
+ 37830 multiletter control sequences out of 15000+600000
+ 545598 words of font info for 125 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  63i,12n,86p,814b,744s stack positions out of 5000i,500n,10000p,200000b,80000s
 

@@ -41,6 +41,7 @@
 \contentsline {chapter}{\numberline {\zihao {-2}5\hspace {.3em}}开源}{16}{chapter.5}%
 \contentsline {section}{\numberline {5.1}项目}{16}{section.5.1}%
 \contentsline {section}{\numberline {5.2}参考}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3}\LaTeX {} 模板}{16}{section.5.3}%
 \contentsline {chapter}{参考文献}{17}{section*.25}%
 \contentsline {chapter}{\numberline {附录 A\hspace {.3em}}代码}{18}{appendix.A}%
 \contentsline {section}{\numberline {A.1}客户端}{18}{section.A.1}%
