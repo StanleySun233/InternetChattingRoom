@@ -8,14 +8,11 @@ import tkinter.filedialog
 from tkinter.scrolledtext import ScrolledText
 import neo as NeoFun
 import cv2
+import numpy as np
 import ftplib
 
-if input() == '1':
-    IP = '47.100.93.63'
-    PORT = '6666'
-else:
-    IP = '127.0.0.1'
-    PORT = 6666
+IP = '47.100.93.63'
+PORT = '6666'
 
 user = ''
 OnlineBox = ''  # 用于显示在线用户的列表框
@@ -69,6 +66,7 @@ def Login(*args):
             global UA
             UA = Account0
             tkinter.messagebox.showwarning('warning', message='登陆成功')
+            user = Account0
             LoginUI.destroy()
         else:
             tkinter.messagebox.showwarning('warning', message='用户名或密码不匹配')
@@ -134,7 +132,16 @@ ToolMessage = tkinter.Listbox(MainBoxUI)
 ToolMessage.place(x=640, y=0, width=140, height=480)
 
 
-def SendImg(*args):
+def send(*args):
+    message = InputTextLabel.get() + '~' + user + '~' + chat
+    NeoFun.CreateNode(graph, 'message', {"name": InputTextLabel.get(), "sender": str(user)})
+    NeoFun.CreateRelationship(graph, 'user', {"name": user}, 'message', {"name": InputTextLabel.get(), "sender": str(user)},
+                              'say')
+    s.send(("0"+message).encode())
+    InputText.set('')
+
+
+def sendImg():
     FilePath = tkinter.filedialog.askopenfilename()
     file = open(FilePath, 'rb')
     ftp = ftplib.FTP()
@@ -145,12 +152,12 @@ def SendImg(*args):
     ftp.delete('test.jpg')
     ftp.storbinary('STOR test.jpg', file, 1024)
     ftp.close()
-    message = "图片发送成功" + '~' + user + '~' + chat
+    message = "1" + '~' + user + '~' + chat
     pic = cv2.imread(FilePath)
     s.send(message.encode())
 
 
-def SendVid(*args):
+def sendVid():
     FilePath = tkinter.filedialog.askopenfilename()
     file = open(FilePath, 'rb')
     ftp = ftplib.FTP()
@@ -161,12 +168,12 @@ def SendVid(*args):
     ftp.delete('test.mp4')
     ftp.storbinary('STOR test.mp4', file, 1024)
     ftp.close()
-    message = "视频发送成功" + '~' + user + '~' + chat
+    message = "2" + '~' + user + '~' + chat
     pic = cv2.imread(FilePath)
     s.send(message.encode())
 
 
-def SendFile(*args):
+def sendFile():
     FilePath = tkinter.filedialog.askopenfilename()
     file = open(FilePath, 'rb')
     ftp = ftplib.FTP()
@@ -176,9 +183,24 @@ def SendFile(*args):
     ftp.login('user', '12345')
     ftp.storbinary('STOR test', file, 1024)
     ftp.close()
-    message = "文件发送成功" + '~' + user + '~' + chat
+    message = "3" + '~' + user + '~' + chat
     pic = cv2.imread(FilePath)
     s.send(message.encode())
+
+
+def SendImg(*args):
+    sd = threading.Thread(target=sendImg)
+    sd.start()
+
+
+def SendVid(*args):
+    sd = threading.Thread(target=sendVid)
+    sd.start()
+
+
+def SendFile(*args):
+    sd = threading.Thread(target=sendFile)
+    sd.start()
 
 
 Picture = tkinter.Button(MainBoxUI, text="发送图片", command=SendImg, bg="gray")
@@ -188,19 +210,49 @@ Picture.place(x=640, y=40, width=160, height=40)
 Picture = tkinter.Button(MainBoxUI, text="发送文件", command=SendFile, bg="gray")
 Picture.place(x=640, y=80, width=160, height=40)
 
-
-def send(*args):
-    message = InputTextLabel.get() + '~' + user + '~' + chat
-    NeoFun.CreateNode(graph, 'message', {"name": InputTextLabel.get(), "sender": user})
-    NeoFun.CreateRelationship(graph, 'user', {"name": user}, 'message', {"name": InputTextLabel.get(), "sender": user},
-                              'say')
-    s.send(message.encode())
-    InputText.set('')
-
-
 sendButton = tkinter.Button(MainBoxUI, text="\n发\n\n\n送", anchor='n', command=send, font=('Helvetica', 18), bg='white')
 sendButton.place(x=585, y=320, width=55, height=300)
 MainBoxUI.bind('<Return>', send)
+
+
+def receivePicture():
+    ftp = ftplib.FTP()
+    ftp.set_pasv(0)
+    ftp.connect('47.100.93.63', 21)
+    ftp.login('user', '12345')
+    filename = 'pic.jpg'
+    os.remove(filename)
+    ftp.retrbinary("RETR test.jpg", open(filename, "ab").write, 1024)
+    pic = cv2.imread(filename)
+    cv2.imshow('picture', pic)
+    cv2.waitKey(0)
+
+
+def receiveVideo():
+    ftp = ftplib.FTP()
+    ftp.set_pasv(0)
+    ftp.connect('47.100.93.63', 21)
+    ftp.login('user', '12345')
+    filename = 'test.mp4'
+    os.remove(filename)
+    ftp.retrbinary("RETR test.mp4", open(filename, "ab+").write, 1024)
+    cap = cv2.VideoCapture(filename)
+    while cap.isOpened():
+        ret, frame = cap.read()
+        cv2.imshow('frame', frame)
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            break
+    cap.release()
+    cv2.destroyAllWindows()
+
+
+def receiveFile():
+    ftp = ftplib.FTP()
+    ftp.set_pasv(0)
+    ftp.connect('47.100.93.63', 21)
+    ftp.login('user', '12345')
+    filename = 'file'
+    ftp.retrbinary("RETR test", open(filename, "ab").write, 1024)
 
 
 def receive():
@@ -221,41 +273,19 @@ def receive():
             message = data[0]
             userName = data[1]
             chatwith = data[2]
-            if "图片发送成功" in message:
-                ftp = ftplib.FTP()
-                ftp.set_pasv(0)
-                ftp.connect('47.100.93.63', 21)
-                ftp.login('user', '12345')
-                filename = 'pic.jpg'
-                os.remove(filename)
-                ftp.retrbinary("RETR test.jpg", open(filename, "ab").write, 1024)
-                pic = cv2.imread(filename)
-                cv2.imshow('picture', pic)
-                cv2.waitKey(0)
-            elif "视频发送成功" in message:
-                ftp = ftplib.FTP()
-                ftp.set_pasv(0)
-                ftp.connect('47.100.93.63', 21)
-                ftp.login('user', '12345')
-                filename = 'vid.mp4'
-                # os.remove(filename)
-                ftp.retrbinary("RETR test.mp4", open(filename, "ab").write, 1024)
-                cap = cv2.VideoCapture(filename)
-                while cap.isOpened():
-                    ret, frame = cap.read()
-                    cv2.imshow('frame', frame)
-                    if cv2.waitKey(25) & 0xFF == ord('q'):
-                        break
-                cap.release()
-                cv2.destroyAllWindows()
-            elif "文件发送成功" in message:
-                ftp = ftplib.FTP()
-                ftp.set_pasv(0)
-                ftp.connect('47.100.93.63', 21)
-                ftp.login('user', '12345')
-                filename = 'file'
-                ftp.retrbinary("RETR test", open(filename, "ab").write, 1024)
+            print(message)
+            if message.split(":")[1][0] == "1":
+                tPic = threading.Thread(target=receivePicture)
+                tPic.start()
+            elif message.split(":")[1][0] == "2":
+                tVid = threading.Thread(target=receiveVideo)
+                tVid.start()
+            elif message.split(":")[1][0] == "3":
+                tFile = threading.Thread(target=receiveFile)
+                tFile.start()
             message = '\n' + message
+            message = message.split(":")
+            message = message[0] + ":" + message[1][1:]
             if chatwith == '------Group chat-------':  # 群聊
                 MessageBox.insert(tkinter.END, message)
             elif userName == user or chatwith == user:  # 私聊
